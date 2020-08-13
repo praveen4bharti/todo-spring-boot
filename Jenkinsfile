@@ -38,6 +38,7 @@ pipeline {
                 }
                 stage('Code Analysis') {
                     steps {
+                        echo "sonar"
                       //  gradlew('sonarqube')
                     }
                 }
@@ -63,6 +64,7 @@ pipeline {
             steps {
                 unstash 'app'
             //    gradlew('deployHeroku')
+                echo "deployProd"
             }
         }
     }
