@@ -22,9 +22,9 @@ pipeline {
             }
         }
         stage('Long-running Verification') {
-            //environment {
-             //   SONAR_LOGIN = credentials('SONARCLOUD_TOKEN')
-            //}
+            environment {
+                SONAR_LOGIN = credentials('SONARCLOUD_TOKEN')
+            }
             parallel {
                 stage('Integration Tests') {
                     steps {
@@ -39,7 +39,7 @@ pipeline {
                 stage('Code Analysis') {
                     steps {
                         echo "sonar"
-                      //  gradlew('sonarqube')
+                        gradlew('sonarqube')
                     }
                 }
             }
